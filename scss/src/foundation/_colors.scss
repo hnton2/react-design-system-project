@@ -27,7 +27,10 @@ $btn-primary-bg-hover: var(--dsp-btn-primary-bg-hover, $green-light) !default;
 $form-border-color: var(--dsp-form-border-color, $white-dark) !default;
 $form-bg-color: var(--dsp-form-bg-color, $white) !default;
 $form-bg-option-selected: var(--dsp-form-bg-option-selected, $green) !default;
-$form-color-option-selected: var(--dsp-form-color-option-selected, $white) !default;
+$form-color-option-selected: var(
+  --dsp-form-color-option-selected,
+  $white
+) !default;
 $form-bg-color-hover: var(--dsp-form-bg-color-hover, $white-dark) !default;
 $form-color: var(--dsp-form-color, $dark) !default;
 $form-bg: var(--dsp-form-bg, $white) !default;
