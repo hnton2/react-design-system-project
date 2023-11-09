@@ -1,0 +1,24 @@
+{
+  "name": "@ds.p/core",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Ton Ho <mailto:hongocton0406@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "lerna": "^7.4.1"
+  },
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/*",
+      "playgrounds/*"
+    ],
+    "nohoist": [
+      "**/normalize-scss"
+    ]
+  },
+  "scripts": {
+    "build": "yarn lerna run build",
+    "dev": "yarn lerna run dev"
+  }
+}
