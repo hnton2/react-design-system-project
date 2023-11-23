@@ -1,0 +1,10 @@
+@import 'foundation/all';
+
+.dsp-button__container {
+  display: flex;
+
+  background-color: $btn-primary-bg;
+  color: $btn-primary-color;
+  border: none;
+  padding: map-get($spacing, 'xxxs');
+}
