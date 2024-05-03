@@ -1,7 +1,7 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 
-import { Margin, Select } from "@ds.p/react";
+import { Margin, Select, LoginPage } from "@ds.p/react";
 
 import "@ds.p/scss/lib/global.css";
 import "@ds.p/scss/lib/Utilities.css";
@@ -25,5 +25,6 @@ root.render(
         // renderOption={({ option, getOptionRecommendedProps }) => <p {...getOptionRecommendedProps({ className: "custom" })}>{option.label}</p>}
       />
     </Margin>
+    // <LoginPage />
   </div>
 );
