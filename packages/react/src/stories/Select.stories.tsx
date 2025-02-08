@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import Select from "../molecules/Select";
 import "@ds.p/scss/lib/Select.css";
 import React from "react";
+import type { RenderOptionProps } from "../molecules/Select/Select";
 
 const options = [
   { value: "black", label: "Black" },
@@ -9,7 +10,10 @@ const options = [
   { value: "grey", label: "Grey" },
 ];
 
-const renderOptionExample = ({ option, getOptionRecommendedProps }) => (
+const renderOptionExample = ({
+  option,
+  getOptionRecommendedProps,
+}: RenderOptionProps) => (
   <p {...getOptionRecommendedProps({ className: "custom" })}>{option.label}</p>
 );
 
@@ -26,7 +30,10 @@ const meta: Meta<typeof Select> = {
   tags: ["autodocs"],
   argTypes: {
     label: { control: "text", description: "Label for the select component" },
-    options: { control: "object", description: "Options for the select dropdown" },
+    options: {
+      control: "object",
+      description: "Options for the select dropdown",
+    },
     renderOption: {
       control: false,
       description: "Custom render function for options",

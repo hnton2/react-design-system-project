@@ -1,12 +1,19 @@
-import React, { KeyboardEventHandler, RefObject, createRef, useEffect, useRef, useState } from "react";
+import React, {
+  KeyboardEventHandler,
+  RefObject,
+  createRef,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import Text from "../../atoms/Text";
 
-interface SelectOption {
+export interface SelectOption {
   label: string;
   value: string;
 }
 
-interface RenderOptionProps {
+export interface RenderOptionProps {
   isSelected: boolean;
   option: SelectOption;
   getOptionRecommendedProps: (overrideProps?: Object) => Object;
@@ -92,7 +99,11 @@ const Select: React.FC<SelectProps> = ({
   const handleKeyDown: KeyboardEventHandler = (event) => {
     event.preventDefault();
 
-    if ([KEY_CODES.DOWN_ARROW, KEY_CODES.ENTER, KEY_CODES.SPACE].includes(event.keyCode)) {
+    if (
+      [KEY_CODES.DOWN_ARROW, KEY_CODES.ENTER, KEY_CODES.SPACE].includes(
+        event.keyCode
+      )
+    ) {
       setIsOpen(true);
 
       // set focus on the list item
@@ -100,7 +111,10 @@ const Select: React.FC<SelectProps> = ({
     }
   };
 
-  const getNextOptionIndex = (currentIndex: number | null, options: Array<SelectOption>) => {
+  const getNextOptionIndex = (
+    currentIndex: number | null,
+    options: Array<SelectOption>
+  ) => {
     if (currentIndex === null || currentIndex === options.length - 1) {
       return 0;
     }
@@ -108,7 +122,10 @@ const Select: React.FC<SelectProps> = ({
     return currentIndex + 1;
   };
 
-  const getPreviousOptionIndex = (currentIndex: number | null, options: Array<SelectOption>) => {
+  const getPreviousOptionIndex = (
+    currentIndex: number | null,
+    options: Array<SelectOption>
+  ) => {
     if (currentIndex === null) {
       return 0;
     }
@@ -141,34 +158,41 @@ const Select: React.FC<SelectProps> = ({
   };
 
   return (
-    <div className='dse-select'>
+    <div className="dse-select">
       <button
-        data-testid='DseSelectButton'
+        data-testid="DseSelectButton"
         onKeyDown={handleKeyDown}
-        aria-controls='dse-select-list'
+        aria-controls="dse-select-list"
         aria-haspopup={true}
         aria-expanded={isOpen ? true : undefined}
         ref={labelRef}
-        className='dse-select__label'
+        className="dse-select__label"
         onClick={handleLabelClick}
       >
         <Text>{selectedOption === null ? label : selectedOption.label}</Text>
         <svg
-          className={`dse-select__caret dse-select__caret--${isOpen ? "open" : "close"}`}
-          width='1rem'
-          height='1rem'
-          fill='none'
-          strokeLinecap='round'
-          strokeLinejoin='round'
+          className={`dse-select__caret dse-select__caret--${
+            isOpen ? "open" : "close"
+          }`}
+          width="1rem"
+          height="1rem"
+          fill="none"
+          strokeLinecap="round"
+          strokeLinejoin="round"
           strokeWidth={2}
-          viewBox='0 0 24 24'
-          stroke='currentColor'
+          viewBox="0 0 24 24"
+          stroke="currentColor"
         >
-          <path d='M19 9l-7 7-7-7' />
+          <path d="M19 9l-7 7-7-7" />
         </svg>
       </button>
       {isOpen ? (
-        <ul role='menu' id='dse-select-list' style={{ top: overlayTop }} className='dse-select__overlay'>
+        <ul
+          role="menu"
+          id="dse-select-list"
+          style={{ top: overlayTop }}
+          className="dse-select__overlay"
+        >
           {options.map((option, index) => {
             const isSelected = selectedIndex === index;
             const isHighlighted = highlightedIndex === index;
@@ -208,16 +232,16 @@ const Select: React.FC<SelectProps> = ({
                 <Text>{option.label}</Text>
                 {isSelected && (
                   <svg
-                    width='1rem'
-                    height='1rem'
-                    fill='none'
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
+                    width="1rem"
+                    height="1rem"
+                    fill="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     strokeWidth={2}
-                    viewBox='0 0 24 24'
-                    stroke='currentColor'
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
                   >
-                    <path d='M5 13l4 4L19 7' />
+                    <path d="M5 13l4 4L19 7" />
                   </svg>
                 )}
               </li>

@@ -12,8 +12,10 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "declaration": true,
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "skipLibCheck": true
   },
   "include": ["src"],
-  "exclude": ["node_modules", "lib"]
+  "exclude": ["node_modules", "lib", "typings/browser.d.ts",
+    "typings/browser",]
 }
